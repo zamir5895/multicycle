@@ -19,7 +19,6 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-
 module arm (
 	clk,
 	reset,
@@ -28,69 +27,73 @@ module arm (
 	WriteData,
 	ReadData
 );
+	// Señales de reloj y reset
 	input wire clk;
 	input wire reset;
-	output wire MemWrite;
-	output wire [31:0] Adr;
-	output wire [31:0] WriteData;
-	input wire [31:0] ReadData;
+	
+	// Interfaz con memoria
+	output wire MemWrite;        // Habilitación de escritura a memoria
+	output wire [31:0] Adr;      // Dirección de memoria
+	output wire [31:0] WriteData; // Datos a escribir
+	input wire [31:0] ReadData;   // Datos leídos de memoria
 
-	wire [31:0] Instr;
-	wire [3:0] ALUFlags;
-	wire PCWrite;
-	wire RegWrite;
-	wire IRWrite;
-	wire AdrSrc;
-	wire [1:0] RegSrc;
-	wire [1:0] ALUSrcA;
-	wire [1:0] ALUSrcB;
-	wire [1:0] ImmSrc;
-	wire [1:0] ResultSrc;
-	wire [3:0] ALUControl;
-	wire UMullState; // ? Nueva señal
-    wire SMullCondition;  // ? AGREGAR
+	// Señales internas entre controller y datapath
+	wire [31:0] Instr;           // Instrucción actual
+	wire [3:0] ALUFlags;         // Flags del ALU (N,Z,C,V)
+	wire PCWrite;                // Habilitación escritura PC
+	wire RegWrite;               // Habilitación escritura registros
+	wire IRWrite;                // Habilitación escritura registro instrucción
+	wire AdrSrc;                 // Selector fuente dirección
+	wire [1:0] RegSrc;           // Selector registros fuente
+	wire [1:0] ALUSrcA;          // Selector operando A del ALU
+	wire [1:0] ALUSrcB;          // Selector operando B del ALU
+	wire [1:0] ImmSrc;           // Selector extensión inmediato
+	wire [1:0] ResultSrc;        // Selector resultado final
+	wire [3:0] ALUControl;       // Control de operación ALU
+	wire UMullState;             // Estado para multiplicaciones largas
+    wire SMullCondition;         // Selector signed/unsigned para MULL
 
-
+	// Instancia del controlador
 	controller c(
 		.clk(clk),
 		.reset(reset),
-		.Instr(Instr),
-		.ALUFlags(ALUFlags),
-		.PCWrite(PCWrite),
-		.MemWrite(MemWrite),
-		.RegWrite(RegWrite),
-		.IRWrite(IRWrite),
-		.AdrSrc(AdrSrc),
-		.RegSrc(RegSrc),
-		.ALUSrcA(ALUSrcA),
-		.ALUSrcB(ALUSrcB),
-		.ResultSrc(ResultSrc),
-		.ImmSrc(ImmSrc),
-		.ALUControl(ALUControl),
-		.UMullState(UMullState),  // ? Conexión con controller
-        .SMullCondition(SMullCondition)  // ? CONECTAR SALIDA
-
+		.Instr(Instr),               // Instrucción a decodificar
+		.ALUFlags(ALUFlags),         // Flags del ALU para condiciones
+		.PCWrite(PCWrite),           // Control escritura PC
+		.MemWrite(MemWrite),         // Control escritura memoria
+		.RegWrite(RegWrite),         // Control escritura registros
+		.IRWrite(IRWrite),           // Control escritura registro instrucción
+		.AdrSrc(AdrSrc),             // Selector dirección (PC vs ALU)
+		.RegSrc(RegSrc),             // Selector registros fuente
+		.ALUSrcA(ALUSrcA),           // Selector operando A
+		.ALUSrcB(ALUSrcB),           // Selector operando B
+		.ResultSrc(ResultSrc),       // Selector resultado final
+		.ImmSrc(ImmSrc),             // Selector extensión inmediato
+		.ALUControl(ALUControl),     // Control operación ALU
+		.UMullState(UMullState),     // Estado multiplicación larga
+        .SMullCondition(SMullCondition) // Condición signed/unsigned
 	);
 
+	// Instancia del datapath
 	datapath dp(
 		.clk(clk),
 		.reset(reset),
-		.Adr(Adr),
-		.WriteData(WriteData),
-		.ReadData(ReadData),
-		.Instr(Instr),
-		.ALUFlags(ALUFlags),
-		.PCWrite(PCWrite),
-		.RegWrite(RegWrite),
-		.IRWrite(IRWrite),
-		.AdrSrc(AdrSrc),
-		.RegSrc(RegSrc),
-		.ALUSrcA(ALUSrcA),
-		.ALUSrcB(ALUSrcB),
-		.ResultSrc(ResultSrc),
-		.ImmSrc(ImmSrc),
-		.ALUControl(ALUControl),
-		.UMullState(UMullState),  // ? Conexión con datapath
-		.SMullCondition(SMullCondition)  // ? CONECTAR
+		.Adr(Adr),                   // Dirección de memoria
+		.WriteData(WriteData),       // Datos a escribir
+		.ReadData(ReadData),         // Datos leídos
+		.Instr(Instr),               // Instrucción actual
+		.ALUFlags(ALUFlags),         // Flags generados por ALU
+		.PCWrite(PCWrite),           // Habilitación PC
+		.RegWrite(RegWrite),         // Habilitación registros
+		.IRWrite(IRWrite),           // Habilitación registro instrucción
+		.AdrSrc(AdrSrc),             // Selector dirección
+		.RegSrc(RegSrc),             // Selector registros
+		.ALUSrcA(ALUSrcA),           // Selector operando A
+		.ALUSrcB(ALUSrcB),           // Selector operando B
+		.ResultSrc(ResultSrc),       // Selector resultado
+		.ImmSrc(ImmSrc),             // Selector inmediato
+		.ALUControl(ALUControl),     // Control ALU
+		.UMullState(UMullState),     // Estado UMULL/SMULL
+		.SMullCondition(SMullCondition) // Condición signed
 	);
 endmodule
