@@ -21,7 +21,6 @@
 
 
 
-
 module top (
 	clk,
 	reset,

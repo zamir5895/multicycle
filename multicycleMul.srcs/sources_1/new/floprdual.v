@@ -21,6 +21,7 @@
 
 
 
+
 module floprdual ( 
     clk, 
     reset, 
