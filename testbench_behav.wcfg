@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="testbench_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="testbench" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="999,995 ps"></ZoomStartTime>
+      <ZoomEndTime time="1,000,002 ps"></ZoomEndTime>
+      <Cursor1Time time="1,000,000 ps"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="233"></NameColumnWidth>
+      <ValueColumnWidth column_width="66"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="8" />
+   <wvobject type="logic" fp_name="/testbench/clk">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testbench/reset">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/WriteData">
+      <obj_property name="ElementShortName">WriteData[31:0]</obj_property>
+      <obj_property name="ObjectShortName">WriteData[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/Adr">
+      <obj_property name="ElementShortName">Adr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Adr[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testbench/MemWrite">
+      <obj_property name="ElementShortName">MemWrite</obj_property>
+      <obj_property name="ObjectShortName">MemWrite</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testbench/dut/arm/UMullState">
+      <obj_property name="ElementShortName">UMullState</obj_property>
+      <obj_property name="ObjectShortName">UMullState</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testbench/dut/arm/SMullCondition">
+      <obj_property name="ElementShortName">SMullCondition</obj_property>
+      <obj_property name="ObjectShortName">SMullCondition</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/dut/arm/Instr">
+      <obj_property name="ElementShortName">Instr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Instr[31:0]</obj_property>
+   </wvobject>
+</wave_config>
