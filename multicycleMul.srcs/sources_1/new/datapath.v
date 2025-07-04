@@ -1,23 +1,4 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 07/04/2025 11:18:01 AM
-// Design Name: 
-// Module Name: datapath
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
 
 module datapath (
     input wire clk,
@@ -37,8 +18,8 @@ module datapath (
     input wire [1:0] ResultSrc,
     input wire [1:0] ImmSrc,
     input wire [3:0] ALUControl,
-    input wire UMullState,  // entrada para identificar el estado en el que estamos del umull
-    input wire SMullCondition  // Condicion de smull
+    input wire UMullState,  // entrada adicional para indicar si estamos en el segundo ciclo de UMULL
+    input wire SMullCondition  // NUEVA ENTRADA
 
 );
 
@@ -58,16 +39,18 @@ module datapath (
     wire [3:0] WA3;
     wire MulCondition;
     wire UMullCondition;
-    wire SMullCondition_i; 
+    wire SMullCondition_internal;  // NUEVA SEÑAL INTERNA
 
 
     // Detectar MUL y UMULL
     assign MulCondition    = (Instr[27:21] == 7'b0000000) && (Instr[7:4] == 4'b1001);
     assign UMullCondition  = (Instr[27:21] == 7'b0000100) && (Instr[7:4] == 4'b1001);
-    assign SMullCondition_i = (Instr[27:21] == 7'b0000110) && (Instr[7:4] == 4'b1001);  // detectamos si es smull
+    assign SMullCondition_internal = (Instr[27:21] == 7'b0000110) && (Instr[7:4] == 4'b1001);  // NUEVA DETECCIÓN
 
-    wire LongMullCondition = UMullCondition | SMullCondition_i;
+    // Combinar condiciones para los muxes
+    wire LongMullCondition = UMullCondition | SMullCondition_internal;
 
+    // PC Register
     flopenr #(32) pcreg (
         .clk(clk),
         .reset(reset),
@@ -76,6 +59,7 @@ module datapath (
         .q(PC)
     );
 
+    // Dirección para memoria
     mux2 #(32) adrmux (
         .d0(PC),
         .d1(Result),
@@ -83,6 +67,7 @@ module datapath (
         .y(Adr)
     );
 
+    // Registro de instrucción
     flopenr #(32) instreg (
         .clk(clk),
         .reset(reset),
@@ -91,6 +76,7 @@ module datapath (
         .q(Instr)
     );
 
+    // Registro de datos leídos de memoria
     flopr #(32) datareg (
         .clk(clk),
         .reset(reset),
@@ -98,6 +84,7 @@ module datapath (
         .q(Data)
     );
 
+    // Multiplexores de lectura de registros
     mux2 #(4) ra1mux (
         .d0(LongMullCondition ? Instr[3:0] : 
              MulCondition ? Instr[3:0] :
@@ -116,10 +103,12 @@ module datapath (
         .y(RA2)
     );
 
+    // Registro de escritura (corregido para alternar entre RdLo y RdHi en UMULL)
     assign WA3 = LongMullCondition ?
                  (UMullState ? Instr[15:12] : Instr[19:16]) :
                  (MulCondition ? Instr[19:16] : Instr[15:12]);
 
+    // Banco de registros
     regfile rf (
         .clk(clk),
         .we3(RegWrite),
@@ -132,6 +121,7 @@ module datapath (
         .rd2(RD2)
     );
 
+    // Registros temporales para datos leídos
     floprdual #(32) regdual (
         .clk(clk),
         .reset(reset),
@@ -141,12 +131,14 @@ module datapath (
         .q2(WriteData)
     );
 
+    // Extensión de inmediato
     extend ext (
         .Instr(Instr[23:0]),
         .ImmSrc(ImmSrc),
         .ExtImm(ExtImm)
     );
 
+    // Multiplexores para entradas del ALU
     mux2 #(32) srcamux (
         .d0(A),
         .d1(PC),
@@ -162,11 +154,12 @@ module datapath (
         .y(SrcB)
     );
 
+    // ALU
     alu alu_inst (
         .SrcA(SrcA),
         .SrcB(SrcB),
         .ALUControl(ALUControl),
-        .isSMULL(SMullCondition),  // condicion de smull
+        .SMullCondition(SMullCondition),  // NUEVA CONEXIÓN
         .ALUResult(ALUResult),
         .ALUFlags(ALUFlags)
     );

@@ -1,24 +1,4 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 07/04/2025 11:12:45 AM
-// Design Name: 
-// Module Name: controller
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
-`timescale 1ns / 1ps
 module controller (
     clk,
     reset,
@@ -54,7 +34,7 @@ module controller (
     output wire [1:0] ImmSrc;
     output wire [3:0] ALUControl;
     output wire UMullState;
-    output wire SMullCondition;  
+    output wire SMullCondition;  // ? NUEVA SALIDA
     
     wire [1:0] FlagW;
     wire PCS;
@@ -83,7 +63,7 @@ module controller (
         .ImmSrc(ImmSrc),
         .RegSrc(RegSrc),
         .ALUControl(ALUControl),
-        .UMullCondition(),  // 
+        .UMullCondition(),  // ? NO CONECTAR (no se usa afuera)
         .SMullCondition(SMullCondition)  // ? CONECTAR PARA SACAR
     );
     
