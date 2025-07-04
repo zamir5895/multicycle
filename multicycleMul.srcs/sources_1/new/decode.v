@@ -99,6 +99,7 @@ module decode (
                     4'b0000: ALUControl = 4'b0010;  // AND
                     4'b1100: ALUControl = 4'b0011;  // ORR
                     4'b1101: ALUControl = 4'b0100;  // MOV
+                    4'b0011: ALUControl = 4'b1000;  // DIV - NUEVA LÍNEA
                     default: ALUControl = 4'bxxxx;
                 endcase
             end

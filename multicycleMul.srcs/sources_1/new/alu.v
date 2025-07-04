@@ -31,6 +31,7 @@ module alu(
             4'b0101: ALUResult = mul_result[31:0];       // MUL
             4'b0110: ALUResult = SMullCondition ? smul_result[31:0] : mul_result[31:0];     // MODIFICADO
             4'b0111: ALUResult = SMullCondition ? smul_result[63:32] : mul_result[63:32];  // MODIFICADO
+            4'b1000: ALUResult = (SrcB != 0) ? (SrcA / SrcB) : 32'hFFFFFFFF;  // DIV - NUEVA LÍNEA
             default: ALUResult = 32'hxxxxxxxx;
         endcase
     end
