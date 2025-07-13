@@ -1,0 +1,177 @@
+Time resolution is 1 ps
+PC = 00000000, Instr = e3a01101
+PC = 00000000, Instr = e3a01101
+Time: 30000 | display_sel: 00 | anode: 1110 | catode: 00000011
+PC = 00000000, Instr = e3a01101
+Time: 40000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 00000004, Instr = e3a02502
+Time: 50000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 00000004, Instr = e3a02502
+Time: 60000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 00000004, Instr = e3a02502
+Time: 70000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 00000004, Instr = e3a02502
+Time: 80000 | display_sel: 00 | anode: 1110 | catode: 00000011
+PC = 00000008, Instr = e1811002
+Time: 90000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 00000008, Instr = e1811002
+Time: 100000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 00000008, Instr = e1811002
+Time: 110000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 00000008, Instr = e1811002
+Time: 120000 | display_sel: 00 | anode: 1110 | catode: 00000011
+PC = 0000000c, Instr = e3a0343f
+Time: 130000 | display_sel: 00 | anode: 1110 | catode: 00000011
+PC = 0000000c, Instr = e3a0343f
+Time: 140000 | display_sel: 00 | anode: 1110 | catode: 00000011
+PC = 0000000c, Instr = e3a0343f
+Time: 150000 | display_sel: 00 | anode: 1110 | catode: 00000011
+PC = 0000000c, Instr = e3a0343f
+Time: 160000 | display_sel: 00 | anode: 1110 | catode: 00000011
+PC = 00000010, Instr = e3a0460e
+Time: 170000 | display_sel: 00 | anode: 1110 | catode: 10011001
+PC = 00000010, Instr = e3a0460e
+Time: 180000 | display_sel: 00 | anode: 1110 | catode: 10011001
+PC = 00000010, Instr = e3a0460e
+Time: 190000 | display_sel: 00 | anode: 1110 | catode: 00000011
+PC = 00000010, Instr = e3a0460e
+Time: 200000 | display_sel: 00 | anode: 1110 | catode: 10011001
+PC = 00000014, Instr = e1833004
+Time: 210000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 00000014, Instr = e1833004
+Time: 220000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 00000014, Instr = e1833004
+Time: 230000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 00000014, Instr = e1833004
+Time: 240000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 00000018, Instr = ef0103a3
+Time: 250000 | display_sel: 00 | anode: 1110 | catode: 00000011
+PC = 00000018, Instr = ef0103a3
+Time: 260000 | display_sel: 00 | anode: 1110 | catode: 00000011
+PC = 00000018, Instr = ef0103a3
+Time: 270000 | display_sel: 00 | anode: 1110 | catode: 00000011
+PC = 00000018, Instr = ef0103a3
+Time: 280000 | display_sel: 00 | anode: 1110 | catode: 00000011
+PC = 0000001c, Instr = ef8103a3
+Time: 290000 | display_sel: 00 | anode: 1110 | catode: 00000011
+PC = 0000001c, Instr = ef8103a3
+Time: 300000 | display_sel: 00 | anode: 1110 | catode: 00000011
+PC = 0000001c, Instr = ef8103a3
+Time: 310000 | display_sel: 00 | anode: 1110 | catode: 00000011
+PC = 0000001c, Instr = ef8103a3
+Time: 320000 | display_sel: 00 | anode: 1110 | catode: 00000011
+PC = 00000020, Instr = xxxxxxxx
+Time: 330000 | display_sel: 00 | anode: 1110 | catode: 00000011
+PC = 00000020, Instr = xxxxxxxx
+Time: 340000 | display_sel: 00 | anode: 1110 | catode: 00000011
+PC = 00000020, Instr = xxxxxxxx
+Time: 350000 | display_sel: 00 | anode: 1110 | catode: 00000011
+PC = 00000020, Instr = xxxxxxxx
+Time: 360000 | display_sel: 00 | anode: 1110 | catode: 00000011
+PC = 00000024, Instr = xxxxxxxx
+Time: 370000 | display_sel: 00 | anode: 1110 | catode: 11111111
+Time: 380000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 00000024, Instr = xxxxxxxx
+Time: 390000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 00000028, Instr = xxxxxxxx
+Time: 400000 | display_sel: 00 | anode: 1110 | catode: 11111111
+Time: 410000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 00000028, Instr = xxxxxxxx
+Time: 420000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 0000002c, Instr = xxxxxxxx
+Time: 430000 | display_sel: 00 | anode: 1110 | catode: 11111111
+Time: 440000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 0000002c, Instr = xxxxxxxx
+Time: 450000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 00000030, Instr = xxxxxxxx
+Time: 460000 | display_sel: 00 | anode: 1110 | catode: 11111111
+Time: 470000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 00000030, Instr = xxxxxxxx
+Time: 480000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 00000034, Instr = xxxxxxxx
+Time: 490000 | display_sel: 00 | anode: 1110 | catode: 11111111
+Time: 500000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 00000034, Instr = xxxxxxxx
+Time: 510000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 00000038, Instr = xxxxxxxx
+Time: 520000 | display_sel: 00 | anode: 1110 | catode: 11111111
+Time: 530000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 00000038, Instr = xxxxxxxx
+Time: 540000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 0000003c, Instr = xxxxxxxx
+Time: 550000 | display_sel: 00 | anode: 1110 | catode: 11111111
+Time: 560000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 0000003c, Instr = xxxxxxxx
+Time: 570000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 00000040, Instr = xxxxxxxx
+Time: 580000 | display_sel: 00 | anode: 1110 | catode: 11111111
+Time: 590000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 00000040, Instr = xxxxxxxx
+Time: 600000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 00000044, Instr = xxxxxxxx
+Time: 610000 | display_sel: 00 | anode: 1110 | catode: 11111111
+Time: 620000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 00000044, Instr = xxxxxxxx
+Time: 630000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 00000048, Instr = xxxxxxxx
+Time: 640000 | display_sel: 00 | anode: 1110 | catode: 11111111
+Time: 650000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 00000048, Instr = xxxxxxxx
+Time: 660000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 0000004c, Instr = xxxxxxxx
+Time: 670000 | display_sel: 00 | anode: 1110 | catode: 11111111
+Time: 680000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 0000004c, Instr = xxxxxxxx
+Time: 690000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 00000050, Instr = xxxxxxxx
+Time: 700000 | display_sel: 00 | anode: 1110 | catode: 11111111
+Time: 710000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 00000050, Instr = xxxxxxxx
+Time: 720000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 00000054, Instr = xxxxxxxx
+Time: 730000 | display_sel: 00 | anode: 1110 | catode: 11111111
+Time: 740000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 00000054, Instr = xxxxxxxx
+Time: 750000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 00000058, Instr = xxxxxxxx
+Time: 760000 | display_sel: 00 | anode: 1110 | catode: 11111111
+Time: 770000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 00000058, Instr = xxxxxxxx
+Time: 780000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 0000005c, Instr = xxxxxxxx
+Time: 790000 | display_sel: 00 | anode: 1110 | catode: 11111111
+Time: 800000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 0000005c, Instr = xxxxxxxx
+Time: 810000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 00000060, Instr = xxxxxxxx
+Time: 820000 | display_sel: 00 | anode: 1110 | catode: 11111111
+Time: 830000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 00000060, Instr = xxxxxxxx
+Time: 840000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 00000064, Instr = xxxxxxxx
+Time: 850000 | display_sel: 00 | anode: 1110 | catode: 11111111
+Time: 860000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 00000064, Instr = xxxxxxxx
+Time: 870000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 00000068, Instr = xxxxxxxx
+Time: 880000 | display_sel: 00 | anode: 1110 | catode: 11111111
+Time: 890000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 00000068, Instr = xxxxxxxx
+Time: 900000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 0000006c, Instr = xxxxxxxx
+Time: 910000 | display_sel: 00 | anode: 1110 | catode: 11111111
+Time: 920000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 0000006c, Instr = xxxxxxxx
+Time: 930000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 00000070, Instr = xxxxxxxx
+Time: 940000 | display_sel: 00 | anode: 1110 | catode: 11111111
+Time: 950000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 00000070, Instr = xxxxxxxx
+Time: 960000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 00000074, Instr = xxxxxxxx
+Time: 970000 | display_sel: 00 | anode: 1110 | catode: 11111111
+Time: 980000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 00000074, Instr = xxxxxxxx
+Time: 990000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 00000078, Instr = xxxxxxxx
+Time: 1000000 | display_sel: 01 | anode: 1110 | catode: 11111111

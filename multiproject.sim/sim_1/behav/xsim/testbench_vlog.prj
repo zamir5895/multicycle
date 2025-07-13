@@ -1,0 +1,32 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  --include "../../../../../2025.1/data/rsb/busdef" \
+"../../../../multiproject.srcs/sources_1/new/CLKdivider.v" \
+"../../../../multiproject.srcs/sources_1/new/HexTo7Segment.v" \
+"../../../../multiproject.srcs/sources_1/new/alu.v" \
+"../../../../multiproject.srcs/sources_1/new/arm.v" \
+"../../../../multiproject.srcs/sources_1/new/basys_top.v" \
+"../../../../multiproject.srcs/sources_1/new/bfsm.v" \
+"../../../../multiproject.srcs/sources_1/new/condcheck.v" \
+"../../../../multiproject.srcs/sources_1/new/condlogic.v" \
+"../../../../multiproject.srcs/sources_1/new/controller.v" \
+"../../../../multiproject.srcs/sources_1/new/datapath.v" \
+"../../../../multiproject.srcs/sources_1/new/decode.v" \
+"../../../../multiproject.srcs/sources_1/new/extend.v" \
+"../../../../multiproject.srcs/sources_1/new/flopenr.v" \
+"../../../../multiproject.srcs/sources_1/new/fpdual.v" \
+"../../../../multiproject.srcs/sources_1/new/fpr.v" \
+"../../../../multiproject.srcs/sources_1/new/fpu.v" \
+"../../../../multiproject.srcs/sources_1/new/hex_display.v" \
+"../../../../multiproject.srcs/sources_1/new/mainfsm.v" \
+"../../../../multiproject.srcs/sources_1/new/mem.v" \
+"../../../../multiproject.srcs/sources_1/new/mux2.v" \
+"../../../../multiproject.srcs/sources_1/new/mux3.v" \
+"../../../../multiproject.srcs/sources_1/new/regfile.v" \
+"../../../../multiproject.srcs/sources_1/new/top.v" \
+"../../../../multiproject.srcs/sim_1/new/tb.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
