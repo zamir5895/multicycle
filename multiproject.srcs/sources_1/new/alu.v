@@ -28,8 +28,8 @@ module alu(
     wire is_fp_op = (ALUControl == 4'b1100) || (ALUControl == 4'b1001) || 
                     (ALUControl == 4'b1010) || (ALUControl == 4'b1011);
     
-    // Instancia de la unidad de punto flotante
-    fpu instancia_fpu (
+    // Instancia de la unidad de punto flotante modular
+    fpu_m instancia_fpu (
         .a(a),
         .b(b),
         .op(ALUControl[1]),           // 0: suma flotante, 1: multiplicación flotante
@@ -37,6 +37,7 @@ module alu(
         .result(fpuResultado),        // Resultado de la operación FPU (ancho depende de 'precision')
         .overflowFlag(fpuOverflow)    // Bandera de overflow de la FPU
     );
+    
     
     // Multiplexor principal de operaciones ALU
     always @(*) begin

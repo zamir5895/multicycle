@@ -1,64 +1,64 @@
 Time resolution is 1 ps
-PC = 00000000, Instr = e3a01101
-PC = 00000000, Instr = e3a01101
+PC = 00000000, Instr = e3a03c3d
+PC = 00000000, Instr = e3a03c3d
 Time: 30000 | display_sel: 00 | anode: 1110 | catode: 00000011
-PC = 00000000, Instr = e3a01101
+PC = 00000000, Instr = e3a03c3d
 Time: 40000 | display_sel: 00 | anode: 1110 | catode: 11111111
-PC = 00000004, Instr = e3a02502
+PC = 00000004, Instr = e3a04080
 Time: 50000 | display_sel: 00 | anode: 1110 | catode: 11111111
-PC = 00000004, Instr = e3a02502
+PC = 00000004, Instr = e3a04080
 Time: 60000 | display_sel: 00 | anode: 1110 | catode: 11111111
-PC = 00000004, Instr = e3a02502
+PC = 00000004, Instr = e3a04080
 Time: 70000 | display_sel: 00 | anode: 1110 | catode: 11111111
-PC = 00000004, Instr = e3a02502
-Time: 80000 | display_sel: 00 | anode: 1110 | catode: 00000011
-PC = 00000008, Instr = e1811002
+PC = 00000004, Instr = e3a04080
+Time: 80000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 00000008, Instr = e1833004
 Time: 90000 | display_sel: 00 | anode: 1110 | catode: 11111111
-PC = 00000008, Instr = e1811002
+PC = 00000008, Instr = e1833004
 Time: 100000 | display_sel: 00 | anode: 1110 | catode: 11111111
-PC = 00000008, Instr = e1811002
+PC = 00000008, Instr = e1833004
 Time: 110000 | display_sel: 00 | anode: 1110 | catode: 11111111
-PC = 00000008, Instr = e1811002
-Time: 120000 | display_sel: 00 | anode: 1110 | catode: 00000011
-PC = 0000000c, Instr = e3a0343f
+PC = 00000008, Instr = e1833004
+Time: 120000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 0000000c, Instr = e3a01c41
 Time: 130000 | display_sel: 00 | anode: 1110 | catode: 00000011
-PC = 0000000c, Instr = e3a0343f
+PC = 0000000c, Instr = e3a01c41
 Time: 140000 | display_sel: 00 | anode: 1110 | catode: 00000011
-PC = 0000000c, Instr = e3a0343f
+PC = 0000000c, Instr = e3a01c41
 Time: 150000 | display_sel: 00 | anode: 1110 | catode: 00000011
-PC = 0000000c, Instr = e3a0343f
+PC = 0000000c, Instr = e3a01c41
 Time: 160000 | display_sel: 00 | anode: 1110 | catode: 00000011
-PC = 00000010, Instr = e3a0460e
-Time: 170000 | display_sel: 00 | anode: 1110 | catode: 10011001
-PC = 00000010, Instr = e3a0460e
-Time: 180000 | display_sel: 00 | anode: 1110 | catode: 10011001
-PC = 00000010, Instr = e3a0460e
-Time: 190000 | display_sel: 00 | anode: 1110 | catode: 00000011
-PC = 00000010, Instr = e3a0460e
-Time: 200000 | display_sel: 00 | anode: 1110 | catode: 10011001
-PC = 00000014, Instr = e1833004
+PC = 00000010, Instr = e3a02080
+Time: 170000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 00000010, Instr = e3a02080
+Time: 180000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 00000010, Instr = e3a02080
+Time: 190000 | display_sel: 00 | anode: 1110 | catode: 11111111
+PC = 00000010, Instr = e3a02080
+Time: 200000 | display_sel: 00 | anode: 1110 | catode: 00000011
+PC = 00000014, Instr = e1811002
 Time: 210000 | display_sel: 00 | anode: 1110 | catode: 11111111
-PC = 00000014, Instr = e1833004
+PC = 00000014, Instr = e1811002
 Time: 220000 | display_sel: 00 | anode: 1110 | catode: 11111111
-PC = 00000014, Instr = e1833004
+PC = 00000014, Instr = e1811002
 Time: 230000 | display_sel: 00 | anode: 1110 | catode: 11111111
-PC = 00000014, Instr = e1833004
+PC = 00000014, Instr = e1811002
 Time: 240000 | display_sel: 00 | anode: 1110 | catode: 11111111
-PC = 00000018, Instr = ef0103a3
+PC = 00000018, Instr = ef2103a3
 Time: 250000 | display_sel: 00 | anode: 1110 | catode: 00000011
-PC = 00000018, Instr = ef0103a3
+PC = 00000018, Instr = ef2103a3
 Time: 260000 | display_sel: 00 | anode: 1110 | catode: 00000011
-PC = 00000018, Instr = ef0103a3
+PC = 00000018, Instr = ef2103a3
 Time: 270000 | display_sel: 00 | anode: 1110 | catode: 00000011
-PC = 00000018, Instr = ef0103a3
+PC = 00000018, Instr = ef2103a3
 Time: 280000 | display_sel: 00 | anode: 1110 | catode: 00000011
-PC = 0000001c, Instr = ef8103a3
+PC = 0000001c, Instr = efa103a3
 Time: 290000 | display_sel: 00 | anode: 1110 | catode: 00000011
-PC = 0000001c, Instr = ef8103a3
+PC = 0000001c, Instr = efa103a3
 Time: 300000 | display_sel: 00 | anode: 1110 | catode: 00000011
-PC = 0000001c, Instr = ef8103a3
+PC = 0000001c, Instr = efa103a3
 Time: 310000 | display_sel: 00 | anode: 1110 | catode: 00000011
-PC = 0000001c, Instr = ef8103a3
+PC = 0000001c, Instr = efa103a3
 Time: 320000 | display_sel: 00 | anode: 1110 | catode: 00000011
 PC = 00000020, Instr = xxxxxxxx
 Time: 330000 | display_sel: 00 | anode: 1110 | catode: 00000011
