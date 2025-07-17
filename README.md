@@ -306,19 +306,93 @@ assign valor_rotado = ({24'b0, imm8} >> cantidad_rotacion) |
 
 ## Implementación de la FPU
 
-### Estructura del Módulo FPU (`fpu.v`)
+### Arquitectura Modular de la FPU
+
+La implementación utiliza una **arquitectura modular** que divide la funcionalidad en módulos especializados para mayor legibilidad, mantenimiento y reutilización:
+
+```
+┌─────────────────┐    ┌─────────────────┐
+│  fpu_m          │───▶│  Submódulos     │
+│                 │    │                 │
+│  - Coordinador  │    │  - fp_converter │
+│  - Controlador  │    │  - fp_adder     │
+│  - Multiplexor  │    │  - fp_multiplier│
+└─────────────────┘    └─────────────────┘
+```
+
+### Estructura del Módulo FPU Principal (`fpu_m.v`)
 
 ```verilog
-module fpu (
-  input wire [31:0] a, b,           // Operandos
-  input wire op,                    // 0: add, 1: mul
-  input wire precision,             // 0: 16-bit, 1: 32-bit
-  output reg [31:0] result,         // Resultado
-  output reg overflowFlag           // Flag de overflow
+module fpu_m (
+    input wire [31:0] a, b,           // Operandos
+    input wire op,                    // 0: add, 1: mul
+    input wire precision,             // 0: 16-bit, 1: 32-bit
+    output reg [31:0] result,         // Resultado
+    output reg overflowFlag           // Flag de overflow
 );
 ```
 
-### Funciones de Conversión
+### Submódulos Especializados
+
+#### 1. Conversor de Precisión (`fp_converter.v`)
+
+**Función**: Convierte entre FP16 y FP32 según sea necesario.
+
+```verilog
+module fp_converter (
+    input wire [15:0] fp16_in,
+    input wire [31:0] fp32_in,
+    input wire convert_to_32,      // 1: FP16→FP32, 0: FP32→FP16
+    output reg [31:0] fp32_out,
+    output reg [15:0] fp16_out
+);
+```
+
+**Características**:
+- Conversión bidireccional FP16 ↔ FP32
+- Ajuste automático de bias (15 para FP16, 127 para FP32)
+- Manejo de casos especiales (cero, infinito, NaN)
+- Saturación para prevenir overflow en conversión a FP16
+
+#### 2. Sumador de Punto Flotante (`fp_adder.v`)
+
+**Función**: Realiza suma y resta de números en formato FP32.
+
+```verilog
+module fp_adder (
+    input wire [31:0] a,
+    input wire [31:0] b,
+    output reg [31:0] result
+);
+```
+
+**Algoritmo implementado**:
+1. **Extracción de campos**: Signo, exponente y mantisa
+2. **Casos especiales**: Cero, infinito, NaN
+3. **Alineación**: Desplazamiento de mantisa según diferencia de exponentes
+4. **Operación**: Suma o resta según signos de operandos
+5. **Normalización**: Ajuste de exponente y mantisa del resultado
+
+#### 3. Multiplicador de Punto Flotante (`fp_multiplier.v`)
+
+**Función**: Realiza multiplicación de números en formato FP32.
+
+```verilog
+module fp_multiplier (
+    input wire [31:0] a,
+    input wire [31:0] b,
+    output reg [31:0] result
+);
+```
+
+**Algoritmo implementado**:
+1. **Cálculo de signo**: XOR de signos de operandos
+2. **Suma de exponentes**: Con ajuste de bias
+3. **Multiplicación de mantisas**: Producto de 24×24 bits
+4. **Normalización**: Ajuste del resultado de 48 bits a 23 bits
+5. **Verificación**: Overflow y underflow
+
+### Conversión de Precisión Detallada
 
 #### FP16 a FP32 (`convert_half_to_single`)
 
@@ -556,10 +630,10 @@ wire is_fp_op = (ALUControl == 4'b1100) || (ALUControl == 4'b1001) ||
                 (ALUControl == 4'b1010) || (ALUControl == 4'b1011);
 ```
 
-#### Instanciación de FPU:
+#### Instanciación de FPU Modular:
 ```verilog
-// Instancia de la unidad de punto flotante
-fpu instancia_fpu (
+// Instancia de la unidad de punto flotante modular
+fpu_m instancia_fpu (
     .a(a),
     .b(b),
     .op(ALUControl[1]),           // 0: suma flotante, 1: multiplicación flotante
@@ -743,35 +817,55 @@ Sin esta técnica, sería **imposible** cargar valores de punto flotante especí
 
 ### Archivos Principales:
 
-1. **`fpu.v`**: Implementación completa de la FPU
+1. **`fpu_m.v`**: Implementación modular principal de la FPU
+   - Coordinador de submódulos especializados
+   - Lógica de control y selección de operaciones
+   - Manejo de precisión dual (16/32 bits)
+
+2. **`fp_converter.v`**: Conversor de precisión FP16/FP32
+   - Conversión bidireccional entre formatos
+   - Ajuste de bias de exponentes
+   - Manejo de casos especiales
+
+3. **`fp_adder.v`**: Sumador de punto flotante IEEE 754
+   - Algoritmo completo de suma flotante
+   - Alineación de exponentes y normalización
+   - Manejo de signos y casos especiales
+
+4. **`fp_multiplier.v`**: Multiplicador de punto flotante IEEE 754
+   - Algoritmo completo de multiplicación flotante
+   - Multiplicación de mantisas de 24 bits
+   - Normalización y verificación de overflow
+
+5. **`fpu.v`**: Implementación original de la FPU (legacy)
    - Funciones de conversión FP16/FP32
    - Algoritmos de suma y multiplicación IEEE 754
    - Manejo de casos especiales y normalización
 
-2. **`alu.v`**: Unidad Aritmético-Lógica extendida
-   - Integración de la FPU
+6. **`alu.v`**: Unidad Aritmético-Lógica extendida
+   - Integración de la FPU modular
    - Multiplexor de operaciones
    - Generación de flags
 
-3. **`decode.v`**: Decodificador de instrucciones
+8. **`decode.v`**: Decodificador de instrucciones
    - Detección de instrucciones FP
    - Generación de señales de control
    - Manejo de flags según tipo de operación
 
-4. **`datapath.v`**: Ruta de datos del procesador
+9. **`datapath.v`**: Ruta de datos del procesador
    - Multiplexores para registros FP
    - Integración con banco de registros
    - Flujo de datos especializado
 
-5. **`mainfsm.v`**: Máquina de estados principal
-   - Estados para operaciones FP
-   - Transiciones específicas
-   - Generación de señales de control
+10. **`mainfsm.v`**: Máquina de estados principal
+    - Estados para operaciones FP
+    - Transiciones específicas
+    - Generación de señales de control
 
-6. **`controller.v`**: Controlador principal
-   - Coordinación entre decode y FSM
-   - Generación de señales de control
-   - Manejo de condiciones
+11. **`controller.v`**: Controlador principal
+    - Coordinación entre decode y FSM
+    - Generación de señales de control
+    - Manejo de condiciones
 
 ### Archivos de Soporte:
 
